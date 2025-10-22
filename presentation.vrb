@@ -1,1 +1,8 @@
-\frametitle{Methodoloty}
+\frametitle{Methodology}
+	\begin{itemize}
+		\item experimental investigation regarding
+		\begin{itemize}
+			\item data influence on model performance
+			\item model architecture influence on model performance
+		\end{itemize}
+	\end{itemize}

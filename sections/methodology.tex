@@ -1,5 +1,82 @@
-\section{Methodology}
+\section{Methodology} 
+\begin{frame} 
+	\frametitle{Methodology}
+	\begin{itemize}
+		\item Experimental investigation in two phases:
+		\begin{enumerate}
+			\item Baseline Establishment and Data Quality Analysis
+			\item Architectural Intervention and Evaluation
+		\end{enumerate}
+	\end{itemize}
+\end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Methodoloty}
+\begin{frame} 
+	\frametitle{Methodology - Phase 1}
+	\begin{itemize}
+		\item Establishing model architecture and configuration for comparative experiments
+		\begin{itemize}
+			\item Canonical transformer model
+			\item 6 encoder layers, 6 decoder layers, 8 attention heads
+			\item Standard parameter initialization
+			\item Adam optimizer with inverse square root scheduler
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Methodology - Phase 1}
+	\begin{itemize}
+		\item Creating two large training sets from publicly available datasets in the following steps:
+		\begin{enumerate}
+			\item Classifying the data based on empirical reliability into categories:
+			\begin{itemize}
+				\item High Reliability - exhibiting high factual consistency and validation
+				\item Low Reliability - exhibiting high factual heterogeneity and weak source attribution
+			\end{itemize}
+			\item Based on the classification, formalizing the two distinct corpora:
+			\begin{itemize}
+				\item Low-Reliability Corpus ($\mathcal{D}_{\text{LR}}$)
+				\item High-Reliability Corpus ($\mathcal{D}_{\text{HR}}$)
+			\end{itemize}
+			\item Strict deduplication and factuality validation for $\mathcal{D}_{\text{HR}}$
+		\end{enumerate}
+	\end{itemize}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Methodology - Phase 1}
+	\begin{itemize}
+		\item Creating and training two baseline models
+		\item Goal: isolate the effect of training data reliability on factual consistency
+		\item Models: Baseline $B_1$ and Baseline $B_2$ were setup following to the previously demonstrated configuration
+		\item Training $B_1$ and $B_2$ followed the identical training regimen, but used different data:
+		\begin{itemize}
+			\item $B_1$ was trained exclusively on the $\mathcal{D}_{\text{LR}}$
+			\item $B_2$ was trained exclusively on the $\mathcal{D}_{\text{HR}}$
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Methodology - Phase 1}
+	\begin{itemize}
+		\item For measuring the effect of training data on factual adherence, a robust testing regimen was established.
+		\item Metric: Hallucination Rate defined as the proportion of responses with $\geq 1$ factually incorrect claim.
+		\item $\mathcal{T}_{\text{Fact}}$ was created from evaluation prompts sampled equally from the \textit{FEVER} dataset and \textit{TruthfulQA} benchmark.
+		\item $\mathcal{T}_{\text{Fact}}$ is used exclusively for internal benchmarking to measure improvement across development stages.
+		\item Will be reused for measuring the improvement gained by data quality improvement (and for testing the novel architecture in a later step)
+	\end{itemize}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Methodology - Phase 2}
+	\begin{itemize}
+		\item Novel architecture proposal
+		\item The Layer-Specific Factual Gate (LSFG)
+		\item Replaced the Standard Feed-Forward Networks ($\text{FFN}$) in the final decoder layers with a novel Gated Factual Network ($\text{GFN}$)
+		\item The gating mechanism enforces selective suppression of activations contributing to factual inconsistency in the terminal layers.
+		\item Formalization: $\text{Output} = g \odot \text{FFN}(z), \quad \text{where} \quad g = \sigma(W_g z + b_g)$
+		\item The experimental model $M_\text{LSFG}$ trained exclusively on $\mathcal{D}_{\text{HR}}$
+		\item The internal benchmarking on $\mathcal{T}_{\text{Fact}}$ showed that both the data quality and the model architectural alterations contributed greatly to the reduction of hallucination rate.
+	\end{itemize}
 \end{frame}
