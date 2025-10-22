@@ -1,0 +1,67 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+
+\usetheme{boxes}
+\usecolortheme{seahorse}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+
+\setbeamerfont{author}{size=\tiny}
+
+\title{Achieving Near-Zero Hallucation In Large Language Models}
+
+\author{Zoltán Blahovics \and Bence Nagy \and Krisztián Nemes-Kovács \and Balázs Fekete}
+
+\date{}
+
+\setbeamercovered{transparent}
+%\frenchspacing
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\vspace{-2cm}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{eltecimer.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+
+\input{sections/introduction.tex}
+
+\input{sections/methodology.tex}
+
+\input{sections/results.tex}
+
+\input{sections/discussion.tex}
+
+
+\section*{Bibliography}
+
+\begin{frame}
+\frametitle{Bibliography}
+\begin{thebibliography}{2} % BibTeX
+\bibitem{recovery} \textbf{Kyungjin Yoo and Rajeev Barua.} “Recovery of Object Oriented Features from C++ Binaries”. \textit{21st Asia-Pacific Software Engineering Conference}. \textbf{Vol. 1.  231–238}, (2014)
+
+\bibitem{marx} \textbf{Andre Pawlowski et al.} “MARX: Uncovering Class Hierarchies in C++ Programs”., \textit{Network and Distributed System Security Symposium} (2017)
+
+\bibitem{logic} \textbf{Edward J. Schwartz et al.} “Using Logic Programming to Recover C++ Classes and Methods from Compiled Executables”., \textit{ACM SIGSAC Conference on Computer and Communications Security}, \textbf{ 426–441}, (2018)
+
+\bibitem{declassifier} \textbf{Rukayat Ayomide Erinfolami and Aravind Prakash.,} “DeClassifier: Class-Inheritance Inference Engine for Optimized C++ Binaries”,  \textit{arXiv eprints} \textbf{arXiv:1901.10073} (2019)
+
+\end{thebibliography}
+\end{frame}
+
+\end{document}
+
+
