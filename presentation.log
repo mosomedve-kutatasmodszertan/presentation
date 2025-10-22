@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.1)  22 OCT 2025 12:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.1)  22 OCT 2025 16:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,23 +916,59 @@ Package pdftex.def Info: eltecimer.jpg  used on input line 32.
 [3
 
 ]) (./sections/methodology.tex
-\openout4 = `presentation.vrb'.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
 
- (./presentation.vrb)
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
+ut line 11.
+
+(/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
 
 [4
 
-]) (./sections/results.tex
+]
 
 [5
 
-]) (./sections/discussion.tex
+]
 
 [6
 
-])
+]
 
 [7
+
+]
+
+[8
+
+]
+
+[9
+
+]) (./sections/results.tex
+
+[10
+
+]) (./sections/discussion.tex
+
+[11
+
+])
+
+[12
 
  </usr/share/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
@@ -954,22 +990,27 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 73AEBE69E72E80D2F95F5D869E06FEEC;594.
  ) 
 Here is how much of TeX's memory you used:
- 22949 strings out of 475171
- 430911 string characters out of 5767095
- 801682 words of memory out of 5000000
- 45470 multiletter control sequences out of 15000+600000
- 561299 words of font info for 44 fonts, out of 8000000 for 9000
+ 23165 strings out of 475171
+ 436177 string characters out of 5767095
+ 802684 words of memory out of 5000000
+ 45651 multiletter control sequences out of 15000+600000
+ 571984 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,14n,123p,387b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmssi10.pfb>
-Output written on presentation.pdf (7 pages, 143560 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msam10.pfb>
+Output written on presentation.pdf (12 pages, 211374 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 424 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 34 named destinations out of 1000 (max. 500000)
  88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
