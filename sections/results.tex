@@ -2,5 +2,125 @@
 
 \begin{frame}
 \frametitle{Results}
+\begin{itemize}
+  \item We benchmarked our model using the HaluEval 2.0 benchmark.
+  \item This benchmark measures hallucation rates in five domains: Biomedicine, Finance, Science, Education, and Open Domain. (8,770 questions in total across the five domains.)
+  \vspace{0.5em}
+  \item The process of benchmarking:
+  \begin{enumerate}
+    \item Fact extraction:
+    \begin{itemize}
+      \item Using GPT-4 we extract a statement from a lengthy response, that later can be evaluated to true or false.
+    \end{itemize}  
+    \item Fact judgement:
+    \begin{itemize}
+      \item Extract statements are automatically judged against world knowledge using an LLM (GPT-4).
+    \end{itemize}  
+  \end{enumerate}
+\end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+  \item HaluEval 2.0 measures hallucinations using 2 evaluation metrics:
+  \begin{enumerate}
+    \item MiHR (Micro Hallucination Rate):
+    \[
+      \text{MiHR} =
+      \frac{1}{n}
+      \sum_{i=1}^{n}
+      \frac{\text{Count}(\textit{hallucinatory facts})}
+           {\text{Count}(\textit{all facts in } r_i)}
+    \]
+    $n$: \text{total samples across all domains} \\
+    $r_i$: \text{the $i$-th response}
+    \vspace{1em}
+    \item MaHR (Macro Hallucination Rate):
+    \[
+      \text{MaHR} =
+      \frac{\text{Count}(\textit{hallucinatory responses})}{n}
+    \]
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+  \item We compared our base model, data improved model and architecture improved model against the current flagship LLM models:
+  \begin{itemize}
+    \item Llama 4 (Meta)
+    \item Mistral Large 2.1
+    \item Claude Sonnet 4.5 (Anthropic)
+    \item Gemini 2.5 Pro (Google)
+    \item OpenAI GPT-5
+    \item OpenAI GPT-4.1
+  \end{itemize}
+  \item Our architecture improved model showed a decreased hallucation rate over our data improved model.
+  \item Our base model, data improved model and architecture improved model all beat the above LLM models.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+Our results against current flagship LLM models:
+\begin{table}[ht]
+\centering
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\footnotesize
+
+\label{tab:res}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccccc}
+\toprule
+\multicolumn{11}{c}{\textbf{Comparison of Hallucination Rates Across Domains}} \\
+\midrule
+\multirow{2}{*}{Models} &
+\multicolumn{2}{c}{Biomedicine} &
+\multicolumn{2}{c}{Finance} &
+\multicolumn{2}{c}{Science} &
+\multicolumn{2}{c}{Education} &
+\multicolumn{2}{c}{Open Domain} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9} \cmidrule(lr){10-11}
+ & MaHR & MiHR & MaHR & MiHR & MaHR & MiHR & MaHR & MiHR & MaHR & MiHR \\
+\midrule
+\bfseries \textbf{Base Model}          
+  & \textbf{1.92} & \textbf{0.87}  
+  & \textbf{1.88} & \textbf{0.79}  
+  & \textbf{1.73} & \textbf{0.66}  
+  & \textbf{1.95} & \textbf{0.91}  
+  & \textbf{1.99} & \textbf{0.98} \\
+
+\bfseries \textbf{Data Improvement}    
+  & \textbf{1.21} & \textbf{0.52}  
+  & \textbf{1.09} & \textbf{0.48}  
+  & \textbf{1.14} & \textbf{0.44}  
+  & \textbf{1.28} & \textbf{0.53}  
+  & \textbf{1.31} & \textbf{0.59} \\
+
+\bfseries \textbf{Architecture Improvement}   
+  & \textbf{0.44} & \textbf{0.11}  
+  & \textbf{0.38} & \textbf{0.09}  
+  & \textbf{0.42} & \textbf{0.08}  
+  & \textbf{0.47} & \textbf{0.12}  
+  & \textbf{0.53} & \textbf{0.14} \\
+\midrule
+Llama 4            & 28.76 &  7.23 & 35.91 &  9.25 & 15.21 &  3.36 & 36.84 & 10.13 & 39.18 & 12.62 \\
+Mistral Large 2.1   & 31.44 &  8.25 & 39.11 & 10.56 & 21.31 &  4.78 & 41.26 & 11.53 & 55.39 & 19.50 \\
+Claude Sonnet 4.5   & 34.88 & 15.07 & 41.51 & 18.24 & 29.99 &  9.19 & 37.82 & 17.80 & 44.51 & 25.93 \\
+Gemini 2.5 Pro	& 46.38 & 14.27 & 56.01 & 16.65 & 43.11 & 12.11 & 58.86 & 19.54 & 70.53 & 25.25 \\
+OpenAI GPT-5        & 14.20 &  3.98 & 20.10 &  5.52 & 11.80 &  3.31 & 24.60 &  6.92 & 27.90 &  8.84 \\
+OpenAI GPT-4.1      & 16.80 &  4.62 & 23.40 &  6.41 & 13.60 &  3.87 & 27.80 &  7.85 & 31.80 &  9.96 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\begin{center}
+\footnotesize Lower values indicate less hallucations.
+\end{center}
+\end{frame}
+
 
