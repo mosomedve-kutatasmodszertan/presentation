@@ -1,6 +1,45 @@
-\section{Limitations and Further Research}
-
-\begin{frame}
-\frametitle{Limitations and Further Research}
+\begin{frame}{Interpretation of Results}
+\begin{itemize}
+    \item Clear reduction in hallucination rates across all tested domains.
+    \item Both \textbf{data quality improvement} and \textbf{architectural refinement} proved effective.
+    \item Comparative analysis shows:
+    \begin{itemize}
+        \item Data reliability improvements help certain domains more.
+        \item Architectural optimization benefits others more.
+    \end{itemize}
+    \item Indicates complementary effects – neither aspect alone is sufficient.
+    \item \textbf{Conclusion:} Robust factual consistency requires a holistic approach integrating both data- and architecture-centric strategies.
+\end{itemize}
 \end{frame}
 
+%-----------------------------------------------------------
+
+\begin{frame}{Limitations}
+\begin{itemize}
+    \item \textbf{Benchmarking challenges:} Current tools (e.g., HaluEval 2.0) cannot fully capture nuanced hallucinations.
+    \item Automated factuality checks introduce measurement uncertainty.
+    \item \textbf{Data constraints:} 
+    \begin{itemize}
+        \item High-quality data often excludes low-reliability sources.
+        \item Yet such sources may contain unique, valuable knowledge.
+    \end{itemize}
+    \item Balancing data inclusion vs.\ factual stability remains unresolved.
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+
+\begin{frame}{Future Directions}
+\begin{itemize}
+    \item Develop more comprehensive hallucination benchmarks
+    \begin{itemize}
+        \item Integrate factual and contextual dimensions
+    \end{itemize}
+    \item Scale experiments to larger models and diverse domains
+    \item Explore hybrid retrieval-augmented architectures
+    \item Deepen understanding of how data and structure interact in hallucination suppression
+\end{itemize}
+\begin{block}{Goal}
+    Toward more \textbf{trustworthy, knowledge-grounded} generative models.
+\end{block}
+\end{frame}
