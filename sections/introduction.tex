@@ -1,5 +1,53 @@
 \section{Introduction}
 
 \begin{frame}
-\frametitle{Introduction}
+\frametitle{Background and Problem}
+\begin{itemize}
+    \item \textbf{Large Language Models (LLMs)} enable fluent and contextually rich text generation.
+    \item However, they often produce \textbf{hallucinations} - syntactically correct but factually incorrect statements.
+    \item Hallucinations arise from the \textbf{probabilistic nature} of autoregressive text generation: models predict the next token based on likelihood, not factual truth.
+    \item This undermines the \textbf{reliability and trustworthiness} of generative AI systems.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Hallucination Matters}
+\begin{itemize}
+    \item In creative writing, factual errors may be tolerable.
+    \item In \textbf{critical domains} (medicine, law, education), misinformation can have serious consequences.
+    \item Reducing hallucinations is essential for:
+    \begin{itemize}
+        \item trustworthy AI
+        \item user confidence
+        \item safe deployment in high-stakes settings
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Related Work}
+\begin{itemize}
+    \item \textit{Cao, Narayan, \& Bansal} \cite{cao2021hallucination} - Hallucination stems from fluency-truth mismatch.
+    \item \textit{Tonmoy et al.} \cite{islam2024comprehensive} - Categorized mitigation into data-, architecture-, and decoding-level approaches.
+    \item \textit{Cossio} \cite{cossio2025comprehensive} - Distinguished between intrinsic (model bias) and extrinsic (data noise) hallucinations.
+    \item Prior work
+    \begin{itemize}
+        \item Both \textbf{data integrity} and \textbf{model design} are crucial.
+        \item Improved factuality but \textbf{did not fully address the architectural cause}. 
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Our Motivation and Approach}
+\begin{itemize}
+    \item Investigate how \textbf{data reliability} and \textbf{architecture} jointly affect hallucination.
+    \item Introduce the \textbf{Layer-Specific Factual Gate (LSFG)}:
+    \begin{itemize}
+        \item suppresses activations leading to factual errors in decoder layers
+        \item constrains outputs toward verifiable content
+    \end{itemize}
+    \item Combining LSFG with high-quality data yields a \textbf{96.4\% reduction} in hallucination rates.
+    \item Moves toward more \textbf{trustworthy and factually grounded} LLMs.
+\end{itemize}
 \end{frame}
